@@ -1,0 +1,8 @@
+<%= form_for :course, url:{action: 'create'} do |f|%>
+	<p>
+		<%= f.label :title%>
+		<%= f.text_field :title, placeholder: "Your course title..."%>
+	</p>
+
+	<%= submit_tag ("Add my course")%>
+<%end%>

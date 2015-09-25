@@ -1,0 +1,28 @@
+<nav>
+	<ul>
+		<li><%= link_to "Home", courses_path %></li>
+		<li><%= link_to "Add course", new_course_path %></li>
+		<li><%= link_to "Log In",  new_user_session_path %></li>
+		<li><%= link_to "Log Out",  destroy_user_session_path %></li>
+		<li><%= link_to "Sign Up",  new_user_registration_path %></li>
+	</ul>
+</nav>
+<table>
+	<thead>
+		<tr>
+			<th><strong>Your Courses</strong></th>
+		</tr>
+	</thead>
+	<tbody>
+	<div id= "content">
+		<% @courses.each do |course| %>
+			<tr>
+				<td><%= course.title %></td> 
+				<td><%= link_to "Add Modules", new_course_topic_path(course) %></td>
+				<td><%= link_to "View my Modules", course_topics_path(course) %></td>
+				<td><%= link_to "Delete", course_path(course.id), method: :delete, data:{confirm: "Are you sure?"}%></td>
+			</tr>
+			<% end %>
+	</div>
+	</tbody>
+</table>

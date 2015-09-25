@@ -1,0 +1,5 @@
+<%= form_for :topic, url: {action:"create"} do |f| %>
+	<%= f.text_field :subject, placeholder: "Module name goes here.." %>
+	<%= f.text_area :desc, placeholder: "Your study list goes here...." %>
+	<%= f.submit ("Save it") %>
+<% end %>
