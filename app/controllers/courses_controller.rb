@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
+
   def index
-    @courses = Course.all
+    @courses = Course.where(:user_id=>current_user)
   end
 
   def show
@@ -13,7 +14,7 @@ class CoursesController < ApplicationController
 
   def create
     #binding.pry
-    @course = Course.new(course_params)
+    @course = current_user.courses.new(course_params)
     if @course.save
       redirect_to courses_path
     end

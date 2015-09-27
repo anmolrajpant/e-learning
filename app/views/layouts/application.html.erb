@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="wrapper">
+<div class="container-fluid">
 	<%= yield %>
 	<div id="log_out">
 		<% if user_signed_in? %>
@@ -24,4 +24,3 @@
 </html>
 
 
-Welcome! You have signed up successfully.
