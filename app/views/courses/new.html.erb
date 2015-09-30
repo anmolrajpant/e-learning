@@ -1,1 +1,7 @@
+<nav>
+	<ul class="nav nav-tabs">
+		<li><%= link_to "Home", courses_path %></li>
+		<li><%= link_to "sign out", destroy_user_session_path, method: :delete %></li>
+	</ul>
+</nav>
 <%= render 'form' %>

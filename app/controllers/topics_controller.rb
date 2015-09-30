@@ -16,7 +16,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @course = Course.find(params[:course_id])
+    @course = current_user.courses.find(params[:course_id])
     @topic = @course.topics.new(save)
     if @course.save
       redirect_to courses_path

@@ -1,14 +1,27 @@
+<nav>
+	<ul class="nav nav-tabs">
+		<li><%= link_to "Home", courses_path %></li>
+		<li><%= link_to "Add course", new_course_path %></li>
+		<li><%= link_to "sign out", destroy_user_session_path, method: :delete %></li>
+	</ul>
+</nav>
 <table class="table table-striped table-condensed">
 	<thead>
-	<strong>
-		<th>Module</th>
-		<th>Notes</th>
-	</strong>
+		<tr>
+			<td><strong>Module</strong></td>
+			<td><strong>Notes</strong></td>
+		</tr>
 	</thead>
 	<tbody>
 		<% @topics.each do |topic| %>
-		<th><%= topic.subject %></th>
-		<th><%= topic.desc %></th>
+		<tr>
+			<td><%= topic.subject %></td>
+			<td><%= truncate topic.desc, length:50 %><%= link_to 'Read more', course_topic_path(@course,topic.id) %></td>
+			<td><%= link_to "Remove", course_topic_path(@course,topic.id), method: :delete, data:{confirm: "Are you sure?"}%></td>
+		</tr>
 		<% end %>
 	</tbody>
 </table>
+<div class="btn btn-default btn-sm">
+	<%= link_to 'Back', :back %>
+</div>
